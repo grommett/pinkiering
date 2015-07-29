@@ -1,4 +1,4 @@
-var isEmail = require('isEmail');
+var isEmail = require('isemail');
 
 /*
  * Validates that text is not empty
