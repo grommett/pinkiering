@@ -1,6 +1,4 @@
 'use strict'
-var backgroundFactory = require('./background');
-var background ;
 var particle = require('./particle');
 var vector = require('./vector');
 var utils = require('../utils');
