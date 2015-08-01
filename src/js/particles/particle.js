@@ -1,21 +1,21 @@
+var vector = require('./vector');
+var utils = require('../utils');
+
+defaults = {
+  acceleration: vector.create(1,1),
+  location: vector.create(0,0)
+}
+
 module.exports = {
-  create: function() {
-    var x = 100;
-    var y = 100;
+  create: function(opts) {
+    var settings = utils.merge(opts || {}, defaults);
     return {
       update: function() {
-
+        settings.location.x += settings.acceleration.x
+        settings.location.y += settings.acceleration.y
       },
-      getPosition: function() {
-        return {x: x, y: y}
-      },
-      setPosition: function(obj) {
-        x = obj.x || x;
-        y = obj.y || y;
-      }, 
-      move: function(obj) {
-        x += obj.x || 0
-        y += obj.Y || 0
+      position: function() {
+        return vector.create(settings.location.x, settings.location.y);
       }
     }
   }
