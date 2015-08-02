@@ -14,10 +14,11 @@
     "js": "mkdir -p ./dev/js && browserify ./src/js/site.js -o ./dev/js/site.js",
     "clean": "rm -rf ./dev",
     "build:html": "mkdir -p ./build && html-minifier --collapse-whitespace --remove-comments --lint ./src/index.html | node ./lib/comment-injector.js > ./build/index.html && cp src/404.html ./build/404.html",
+    "build:htaccess": "mkdir -p ./build && cp src/.htaccess ./build/.htaccess",
     "build:css": "mkdir -p ./build/css && stylus -c ./src/stylus/main.styl -o ./build/css/main.css",
     "build:imgs": "mkdir -p ./build/imgs && cp ./src/imgs/* ./build/imgs/ && cp ./src/imgs/favicon.ico ./build/favicon.ico",
     "build:js": "mkdir -p ./build/js && browserify ./src/js/site.js -o ./build/js/site.js",
-    "build": "npm run build:html && npm run build:css && npm run build:imgs && npm run build:js",
+    "build": "npm run build:html && npm run build:htaccess && npm run build:css && npm run build:imgs && npm run build:js",
     "build:clean": "rm -rf ./build",
     "deploy": "sh deploy.sh"
   },
